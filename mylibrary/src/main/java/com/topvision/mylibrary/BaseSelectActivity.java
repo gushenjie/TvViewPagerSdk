@@ -1,15 +1,15 @@
 package com.topvision.mylibrary;
 
+import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
-import com.topvision.commomsdk.TouchInterface;
-import com.topvision.commomsdk.activity.BaseActivity;
-
 import java.util.ArrayList;
 import java.util.List;
-
-public abstract class BaseSelectActivity extends BaseActivity implements TouchInterface {
+//1. 依赖commomsdk
+// 2.集成baseActivity
+// 3. 实现Touchinterace
+public abstract class BaseSelectActivity extends Activity {
     private static final int PAGE_ITEM = 4;
     private CustomViewpager viewPager;
     private ViewpagerAdapter adapter;
@@ -61,36 +61,36 @@ public abstract class BaseSelectActivity extends BaseActivity implements TouchIn
     @Override
     protected void onResume() {
         super.onResume();
-        setTouchInterfaceListener(this);
+        // setTouchInterfaceListener(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        setTouchInterfaceListener(null);
+        // setTouchInterfaceListener(null);
     }
 
-    @Override
-    public void doForwardTouch() {
-        //向前选择
-        adapter.doNextSelect();
-    }
-
-    @Override
-    public void doBackwardTouch() {
-        //向后选择
-        adapter.doPreSelect();
-    }
-
-    @Override
-    public void doClickTouch() {
-        int currentItem = viewPager.getCurrentItem();
-        int gridPosition = adapter.doClickSelect();
-        setOnItemClicked(gridPosition + (PAGE_ITEM * currentItem));
-    }
-
-    @Override
-    public void doDoubleTouch() {
-
-    }
+//    @Override
+//    public void doForwardTouch() {
+//        //向前选择
+//        adapter.doNextSelect();
+//    }
+//
+//    @Override
+//    public void doBackwardTouch() {
+//        //向后选择
+//        adapter.doPreSelect();
+//    }
+//
+//    @Override
+//    public void doClickTouch() {
+//        int currentItem = viewPager.getCurrentItem();
+//        int gridPosition = adapter.doClickSelect();
+//        setOnItemClicked(gridPosition + (PAGE_ITEM * currentItem));
+//    }
+//
+//    @Override
+//    public void doDoubleTouch() {
+//
+//    }
 }
