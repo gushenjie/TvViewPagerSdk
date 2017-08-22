@@ -16,14 +16,13 @@
         android:layout_height="match_parent">
         <ImageView
             android:id="@+id/iv"
-            android:src="@mipmap/ic_launcher"
             android:layout_width="@dimen/x70"
             android:layout_height="@dimen/x70" />
         <TextView
             android:id="@+id/tv"
             android:layout_marginTop="@dimen/x7"
             android:text="title"
-            android:textColor="@color/white"
+            android:textColor="#fff"
             android:textSize="@dimen/x15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
